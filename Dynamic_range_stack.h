@@ -193,13 +193,16 @@ int Dynamic_range_stack::pop() {
 	if (*(stack_array + entry_count - 1) == *(maximum_array + max_count - 1)) {
 		*(maximum_array + max_count - 1) = 0;
 		max_count--;
+		std::cout<< "1"<<std::endl;
 	}
 	//pop minimum array if match
 	if (*(stack_array + entry_count - 1) == *(minimum_array + min_count - 1)) {
 		*(minimum_array + min_count - 1) = 0;
 		min_count--;
+		std::cout<< "2"<<std::endl;
 	}
 	//pop stack array
+	std::cout<< "3"<<std::endl;
 	*popvalue=*(stack_array+entry_count - 1);
 	*(stack_array+entry_count - 1) = 0;
 	entry_count--;
