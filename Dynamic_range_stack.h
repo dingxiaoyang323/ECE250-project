@@ -224,7 +224,8 @@ void Dynamic_range_stack::clear() {
 		stack_array = new int[initial_capacity];
 		maximum_array = new int[initial_capacity];
 		minimum_array = new int[initial_capacity];
-//	}
+//	
+		current_capacity=initial_capacity;
 }
 
 // You can modify this function however you want:  it will not be tested
