@@ -92,20 +92,27 @@ Dynamic_range_stack::~Dynamic_range_stack() {
 }
 
 int Dynamic_range_stack::top() const {
-	if (entry_count == 0)
-		throw underflow();
+	if (entry_count == 0){
+		undeflow exception;
+		throw exception;
+	}
 	return *(stack_array+entry_count - 1);
 }
 
 int Dynamic_range_stack::maximum() const {
-	if (max_count == 0)
-		throw undeflow();
+	if (max_count == 0){
+		undeflow exception;
+		throw exception;
+	}
 	return *(maximum_array+max_count - 1);
 }
 
 int Dynamic_range_stack::minimum() const {
-	if (min_count == 0)
-		throw undeflow();
+	if (min_count == 0){
+		undeflow exception;
+		throw exception;
+	}
+		
 	return *(minimum_array+min_count - 1);
 }
 
@@ -130,7 +137,7 @@ void Dynamic_range_stack::push( int const &obj ) {
 		int *stack_array_new = new int[current_capacity];
 		int *maximum_array_new = new int[current_capacity];
 		int *minimum_array_new = new int[current_capacity];
-		for (int i = 0; i < current_capacity, i++) {
+		for (i = 0; i < current_capacity; i++) {
 			*(stack_array_new+i) = *(stack_array+i);
 			*(maximum_array_new+i) = *(maximum_array+i);
 			*(minimum_array_new+i) = *(minimum_array+i);
@@ -171,23 +178,27 @@ void Dynamic_range_stack::push( int const &obj ) {
 	}
 	//stack array count increment
 	entry_count++;
+	return 0;
 }
 
 int Dynamic_range_stack::pop() {
-	if (entry_count == 0)
-		throw underflow();
+	if (entry_count == 0){
+		undeflow exception;
+		throw exception;
+	}
+		;
 	//pop maximum array if match
 	if (*(stack_array + entry_count - 1) == *(maximum_array + max_count - 1)) {
-		*(maximum_array + max_count - 1) = 0;
+		maximum_array + max_count - 1 = 0;
 		max_count--;
 	}
 	//pop minimum array if match
 	if (*(stack_array + entry_count - 1) == *(minimum_array + min_count - 1)) {
-		*(minimum_array + min_count - 1) = 0;
+		minimum_array + min_count - 1 = 0;
 		min_count--;
 	}
 	//pop stack array
-	*(stack_array+entry_count - 1) = 0;
+	stack_array+entry_count - 1 = 0;
 	entry_count--;
 	return 0;
 }
