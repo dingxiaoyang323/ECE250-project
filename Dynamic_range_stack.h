@@ -127,6 +127,7 @@ bool Dynamic_range_stack::empty() const {
 }
 
 int Dynamic_range_stack::capacity() const {
+	std::cout<< "rongliang "<<current_capacity<<endl;
 	return current_capacity;
 }
 
