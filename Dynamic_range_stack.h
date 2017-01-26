@@ -127,9 +127,9 @@ void Dynamic_range_stack::push( int const &obj ) {
 	//size check
 	if (entry_count == current_capacity) {
 		current_capacity = current_capacity * 2;
-		int *stack_array_new(new int[current_capacity]);
-		int *maximum_array_new(new int[current_capacity]);
-		int *minimum_array_new(new int[current_capacity]);
+		int *stack_array_new = new int[current_capacity];
+		int *maximum_array_new = new int[current_capacity];
+		int *minimum_array_new = new int[current_capacity];
 		for (i = 0; i < current_capacity, i++) {
 			*(stack_array_new+i) = *(stack_array+i);
 			*(maximum_array_new+i) = *(maximum_array+i);
@@ -179,16 +179,16 @@ int Dynamic_range_stack::pop() {
 		throw underflow();
 	//pop maximum array if match
 	if (*(stack_array + entry_count - 1) == *(maximum_array + max_count - 1)) {
-		maximum_array + max_count - 1 = NULL;
+		maximum_array + max_count - 1 = 0;
 		max_count--;
 	}
 	//pop minimum array if match
 	if (*(stack_array + entry_count - 1) == *(minimum_array + min_count - 1)) {
-		minimum_array + min_count - 1 = NULL;
+		minimum_array + min_count - 1 = 0;
 		min_count--;
 	}
 	//pop stack array
-	stack_array+entry_count - 1 = NULL;
+	stack_array+entry_count - 1 = 0;
 	entry_count--;
 	return 0;
 }
@@ -204,9 +204,9 @@ void Dynamic_range_stack::clear() {
 	max_count = 0;
 	//allocate new memory location for three arrays if size does not match
 	if (current_capacity!=initial_capacity) {
-		stack_array(new int[initial_capacity]);
-		maximum_array(new int[initial_capacity]);
-		minimum_array(new int[initial_capacity]);
+		stack_array = new int[initial_capacity];
+		maximum_array = new int[initial_capacity];
+		minimum_array = new int[initial_capacity];
 	}
 }
 
