@@ -94,19 +94,19 @@ Dynamic_range_stack::~Dynamic_range_stack() {
 int Dynamic_range_stack::top() const {
 	if (entry_count == 0)
 		throw underflow();
-	return *stack_array[entry_count - 1];
+	return *(stack_array+entry_count - 1);
 }
 
 int Dynamic_range_stack::maximum() const {
 	if (max_count == 0)
 		throw undeflow();
-	return *maximum_array[max_count - 1];
+	return *(maximum_array+max_count - 1);
 }
 
 int Dynamic_range_stack::minimum() const {
 	if (min_count == 0)
 		throw undeflow();
-	return *minimum_array[min_count - 1];
+	return *(minimum_array+min_count - 1);
 }
 
 int Dynamic_range_stack::size() const {
@@ -213,8 +213,8 @@ void Dynamic_range_stack::clear() {
 // You can modify this function however you want:  it will not be tested
 
 std::ostream &operator<<( std::ostream &out, Dynamic_range_stack const &stack ) {
-	for (int i = 0; i < current_capacity; i++)
-		out << *(stack + i) <<endl;
+//	for (int i = 0; i < current_capacity; i++)
+//		out << *(stack + i) <<endl;
 	return out;
 }
 
