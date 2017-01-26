@@ -203,7 +203,7 @@ int Dynamic_range_stack::pop() {
 	//pop stack array
 	*(stack_array+entry_count - 1) = 0;
 	entry_count--;
-	return ;
+	return *popvalue;
 }
 
 void Dynamic_range_stack::clear() {
