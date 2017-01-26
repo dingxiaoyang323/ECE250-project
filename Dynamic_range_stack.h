@@ -147,14 +147,17 @@ void Dynamic_range_stack::push( int const &obj ) {
 		delete[] stack_array;
 		delete[] maximum_array;
 		delete[] minimum_array;
-		for (int i = 0; i < current_capacity; i++) {
-			*(stack_array+i) = *(stack_array_new+i);
-			*(maximum_array+i) = *(maximum_array_new+i);
-			*(minimum_array+i) = *(minimum_array_new+i);
-		}
-		delete[] stack_array_new;
-		delete[] minimum_array_new;
-		delete[] maximum_array_new;
+	//	for (int i = 0; i < current_capacity; i++) {
+	//		*(stack_array+i) = *(stack_array_new+i);
+	///		*(maximum_array+i) = *(maximum_array_new+i);
+	///		*(minimum_array+i) = *(minimum_array_new+i);
+	//	}
+		stack_array=stack_array_new;
+		maximum_array=maximum_array_new;
+		minimum_array=minimum_array_new;
+		delete stack_array_new;
+		delete minimum_array_new;
+		delete maximum_array_new;
 	}
 	//push new value
 	*(stack_array+entry_count) = obj;
