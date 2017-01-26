@@ -220,11 +220,11 @@ void Dynamic_range_stack::clear() {
 	min_count = 0;
 	max_count = 0;
 	//allocate new memory location for three arrays if size does not match
-	if (current_capacity!=initial_capacity) {
+//	if (current_capacity!=initial_capacity) {
 		stack_array = new int[initial_capacity];
 		maximum_array = new int[initial_capacity];
 		minimum_array = new int[initial_capacity];
-	}
+//	}
 }
 
 // You can modify this function however you want:  it will not be tested
