@@ -155,9 +155,9 @@ void Dynamic_range_stack::push( int const &obj ) {
 		stack_array=stack_array_new;
 		maximum_array=maximum_array_new;
 		minimum_array=minimum_array_new;
-		delete stack_array_new;
-		delete minimum_array_new;
-		delete maximum_array_new;
+	//	delete stack_array_new;
+	//	delete minimum_array_new;
+	//	delete maximum_array_new;
 	}
 	//push new value
 	*(stack_array+entry_count) = obj;
