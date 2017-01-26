@@ -94,7 +94,7 @@ Dynamic_range_stack::~Dynamic_range_stack() {
 
 int Dynamic_range_stack::top() const {
 	if (entry_count == 0){
-		undeflow excep;
+		underflow excep;
 		throw excep;
 	}
 	return *(stack_array+entry_count - 1);
@@ -102,7 +102,7 @@ int Dynamic_range_stack::top() const {
 
 int Dynamic_range_stack::maximum() const {
 	if (max_count == 0){
-		undeflow excep;
+		underflow excep;
 		throw excep;
 	}
 	return *(maximum_array+max_count - 1);
@@ -110,7 +110,7 @@ int Dynamic_range_stack::maximum() const {
 
 int Dynamic_range_stack::minimum() const {
 	if (min_count == 0){
-		undeflow excep;
+		underflow excep;
 		throw excep;
 	}
 		
@@ -184,7 +184,7 @@ void Dynamic_range_stack::push( int const &obj ) {
 
 int Dynamic_range_stack::pop() {
 	if (entry_count == 0){
-		undeflow excep;
+		underflow excep;
 		throw excep;
 	}
 		;
