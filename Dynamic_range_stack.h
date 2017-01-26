@@ -130,7 +130,7 @@ void Dynamic_range_stack::push( int const &obj ) {
 		int *stack_array_new = new int[current_capacity];
 		int *maximum_array_new = new int[current_capacity];
 		int *minimum_array_new = new int[current_capacity];
-		for (i = 0; i < current_capacity, i++) {
+		for (int i = 0; i < current_capacity, i++) {
 			*(stack_array_new+i) = *(stack_array+i);
 			*(maximum_array_new+i) = *(maximum_array+i);
 			*(minimum_array_new+i) = *(minimum_array+i);
@@ -171,7 +171,6 @@ void Dynamic_range_stack::push( int const &obj ) {
 	}
 	//stack array count increment
 	entry_count++;
-	return 0;
 }
 
 int Dynamic_range_stack::pop() {
