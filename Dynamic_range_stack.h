@@ -45,6 +45,7 @@ class Dynamic_range_stack {
 		int *stack_array;
 		int *maximum_array;
 		int *minimum_array;
+		int *popvalue;
 
 		// You may wish to include a number of helper functions
 		// in order to abstract out some operations
@@ -189,18 +190,20 @@ int Dynamic_range_stack::pop() {
 		;
 	//pop maximum array if match
 	if (*(stack_array + entry_count - 1) == *(maximum_array + max_count - 1)) {
+		*popvalue=*(maximum_array + max_count - 1);
 		*(maximum_array + max_count - 1) = 0;
 		max_count--;
 	}
 	//pop minimum array if match
 	if (*(stack_array + entry_count - 1) == *(minimum_array + min_count - 1)) {
+		*popvalue=*(minimum_array + min_count - 1);
 		*(minimum_array + min_count - 1) = 0;
 		min_count--;
 	}
 	//pop stack array
 	*(stack_array+entry_count - 1) = 0;
 	entry_count--;
-	return 0;
+	return ;
 }
 
 void Dynamic_range_stack::clear() {
