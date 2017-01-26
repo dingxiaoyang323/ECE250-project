@@ -32,6 +32,7 @@
 
 #include <algorithm>
 #include "Exception.h"
+#include <250.h>
 
 class Dynamic_range_stack {
 	private:
@@ -93,24 +94,24 @@ Dynamic_range_stack::~Dynamic_range_stack() {
 
 int Dynamic_range_stack::top() const {
 	if (entry_count == 0){
-		undeflow exception;
-		throw exception;
+		undeflow excep;
+		throw excep;
 	}
 	return *(stack_array+entry_count - 1);
 }
 
 int Dynamic_range_stack::maximum() const {
 	if (max_count == 0){
-		undeflow exception;
-		throw exception;
+		undeflow excep;
+		throw excep;
 	}
 	return *(maximum_array+max_count - 1);
 }
 
 int Dynamic_range_stack::minimum() const {
 	if (min_count == 0){
-		undeflow exception;
-		throw exception;
+		undeflow excep;
+		throw excep;
 	}
 		
 	return *(minimum_array+min_count - 1);
@@ -137,7 +138,7 @@ void Dynamic_range_stack::push( int const &obj ) {
 		int *stack_array_new = new int[current_capacity];
 		int *maximum_array_new = new int[current_capacity];
 		int *minimum_array_new = new int[current_capacity];
-		for (i = 0; i < current_capacity; i++) {
+		for (int i = 0; i < current_capacity; i++) {
 			*(stack_array_new+i) = *(stack_array+i);
 			*(maximum_array_new+i) = *(maximum_array+i);
 			*(minimum_array_new+i) = *(minimum_array+i);
@@ -183,8 +184,8 @@ void Dynamic_range_stack::push( int const &obj ) {
 
 int Dynamic_range_stack::pop() {
 	if (entry_count == 0){
-		undeflow exception;
-		throw exception;
+		undeflow excep;
+		throw excep;
 	}
 		;
 	//pop maximum array if match
