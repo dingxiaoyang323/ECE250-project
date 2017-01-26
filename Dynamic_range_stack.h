@@ -189,20 +189,18 @@ int Dynamic_range_stack::pop() {
 		underflow excep;
 		throw excep;
 	}
-		;
 	//pop maximum array if match
 	if (*(stack_array + entry_count - 1) == *(maximum_array + max_count - 1)) {
-		*popvalue=*(maximum_array + max_count - 1);
 		*(maximum_array + max_count - 1) = 0;
 		max_count--;
 	}
 	//pop minimum array if match
 	if (*(stack_array + entry_count - 1) == *(minimum_array + min_count - 1)) {
-		*popvalue=*(minimum_array + min_count - 1);
 		*(minimum_array + min_count - 1) = 0;
 		min_count--;
 	}
 	//pop stack array
+	*popvalue=*(stack_array+entry_count - 1);
 	*(stack_array+entry_count - 1) = 0;
 	entry_count--;
 	std::cout<< "pop value "<<*popvalue<<std::endl;
