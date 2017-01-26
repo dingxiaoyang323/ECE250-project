@@ -179,7 +179,6 @@ void Dynamic_range_stack::push( int const &obj ) {
 	}
 	//stack array count increment
 	entry_count++;
-	return 0;
 }
 
 int Dynamic_range_stack::pop() {
