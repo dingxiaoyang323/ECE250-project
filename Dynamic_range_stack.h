@@ -147,17 +147,9 @@ void Dynamic_range_stack::push( int const &obj ) {
 		delete[] stack_array;
 		delete[] maximum_array;
 		delete[] minimum_array;
-	//	for (int i = 0; i < current_capacity; i++) {
-	//		*(stack_array+i) = *(stack_array_new+i);
-	///		*(maximum_array+i) = *(maximum_array_new+i);
-	///		*(minimum_array+i) = *(minimum_array_new+i);
-	//	}
 		stack_array=stack_array_new;
 		maximum_array=maximum_array_new;
 		minimum_array=minimum_array_new;
-	//	delete stack_array_new;
-	//	delete minimum_array_new;
-	//	delete maximum_array_new;
 	}
 	//push new value
 	*(stack_array+entry_count) = obj;
@@ -196,20 +188,16 @@ int Dynamic_range_stack::pop() {
 	if (*(stack_array + entry_count - 1) == *(maximum_array + max_count - 1)) {
 		*(maximum_array + max_count - 1) = 0;
 		max_count--;
-//		std::cout<< "1"<<std::endl;
 	}
 	//pop minimum array if match
 	if (*(stack_array + entry_count - 1) == *(minimum_array + min_count - 1)) {
 		*(minimum_array + min_count - 1) = 0;
 		min_count--;
-//		std::cout<< "2"<<std::endl;
 	}
 	//pop stack array
-//	std::cout<< "3"<<std::endl;
 	popvalue=*(stack_array+entry_count - 1);
 	*(stack_array+entry_count - 1) = 0;
 	entry_count--;
-//	std::cout<< "pop value "<<popvalue<<std::endl;
 	return popvalue;
 }
 
@@ -223,7 +211,6 @@ void Dynamic_range_stack::clear() {
 	min_count = 0;
 	max_count = 0;
 	//allocate new memory location for three arrays if size does not match
-//	if (current_capacity!=initial_capacity) {
 		stack_array = new int[initial_capacity];
 		maximum_array = new int[initial_capacity];
 		minimum_array = new int[initial_capacity];
