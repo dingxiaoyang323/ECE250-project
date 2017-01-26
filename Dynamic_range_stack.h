@@ -224,8 +224,7 @@ void Dynamic_range_stack::clear() {
 // You can modify this function however you want:  it will not be tested
 
 std::ostream &operator<<( std::ostream &out, Dynamic_range_stack const &stack ) {
-//	for (int i = 0; i < current_capacity; i++)
-//		out << *(stack + i) <<endl;
+
 	return out;
 }
 
