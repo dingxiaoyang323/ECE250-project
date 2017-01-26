@@ -45,7 +45,7 @@ class Dynamic_range_stack {
 		int *stack_array;
 		int *maximum_array;
 		int *minimum_array;
-		int *popvalue;
+		int popvalue;
 
 		// You may wish to include a number of helper functions
 		// in order to abstract out some operations
@@ -203,11 +203,11 @@ int Dynamic_range_stack::pop() {
 	}
 	//pop stack array
 	std::cout<< "3"<<std::endl;
-	*popvalue=*(stack_array+entry_count - 1);
+	popvalue=*(stack_array+entry_count - 1);
 	*(stack_array+entry_count - 1) = 0;
 	entry_count--;
 	std::cout<< "pop value "<<*popvalue<<std::endl;
-	return *popvalue;
+	return popvalue;
 }
 
 void Dynamic_range_stack::clear() {
