@@ -206,7 +206,7 @@ int Dynamic_range_stack::pop() {
 	popvalue=*(stack_array+entry_count - 1);
 	*(stack_array+entry_count - 1) = 0;
 	entry_count--;
-	std::cout<< "pop value "<<*popvalue<<std::endl;
+	std::cout<< "pop value "<<popvalue<<std::endl;
 	return popvalue;
 }
 
